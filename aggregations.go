@@ -83,3 +83,13 @@ func AggCardinality(name string, fieldNames []string, byRow ...bool) Aggregation
 		ByRow:      isByRow,
 	}
 }
+
+func AggHyperUnique(name string, fieldName string) Aggregation {
+	return Aggregation{
+		Type:       "hyperUnique",
+		Name:       name,
+		FieldNames: fieldName,
+		isInputHyperUnique: false,
+		round: false
+	}
+}
