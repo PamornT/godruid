@@ -13,6 +13,8 @@ type Aggregation struct {
 	FnCombine   string   `json:"fnCombine,omitempty"`
 	FnReset     string   `json:"fnReset,omitempty"`
 	ByRow       bool     `json:"byRow,omitempty"`
+	isInputHyperUnique bool `json:"isInputHyperUnique,omitempty"`
+	round		 bool `json:"round,omitempty"`
 }
 
 func AggRawJson(rawJson string) Aggregation {
@@ -88,8 +90,8 @@ func AggHyperUnique(name string, fieldName string) Aggregation {
 	return Aggregation{
 		Type:       "hyperUnique",
 		Name:       name,
-		FieldNames: fieldName,
+		FieldName: fieldName,
 		isInputHyperUnique: false,
-		round: false
+		round: false,
 	}
 }
